@@ -1,0 +1,165 @@
+@import './normalize.scss';
+@import './vars.scss';
+@import './animation.scss';
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  font-family: $font2;
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: $color--background;
+  background-image: url('../assets/images/soft-wallpaper.png');
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  color: $color--white;
+  @include font-size(20px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font1;
+}
+h1 {
+  @include font-size(42px);
+}
+h2 {
+  @include font-size(36px);
+}
+h3 {
+  @include font-size(30px);
+}
+h4 {
+  @include font-size(24px);
+}
+h5 {
+  @include font-size(18px);
+}
+h6 {
+  @include font-size(16px);
+}
+
+/////////////////////////
+//      Animated BG    //
+/////////////////////////
+
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.background span {
+  border-radius: 20vmin;
+  backface-visibility: hidden;
+  position: absolute;
+  @include moveAnimation;
+}
+
+.background span img {
+  animation: setAppearDisapear();
+}
+
+.background span:nth-child(0) {
+  @include refineMoveAnimation(4%, 71%, 32s, -15s, 12vw, 12vh);
+}
+.background span:nth-child(1) {
+  @include refineMoveAnimation(54%, 62%, 33s, -33s, -4vw, 4vh);
+}
+.background span:nth-child(2) {
+  @include refineMoveAnimation(58%, 90%, 35s, -20s, 25vw, -4vh);
+}
+.background span:nth-child(3) {
+  @include refineMoveAnimation(59%, 41%, 26s, -18s, -21vw, -23vh);
+}
+.background span:nth-child(4) {
+  @include refineMoveAnimation(37%, 8%, 28s, -32s, -2vw, 2vh);
+}
+.background span:nth-child(5) {
+  @include refineMoveAnimation(38%, 100%, 21s, -17s, 11vw, 2vh);
+}
+.background span:nth-child(6) {
+  @include refineMoveAnimation(91%, 100%, 37s, -31s, -20vw, -17vh);
+}
+.background span:nth-child(7) {
+  @include refineMoveAnimation(91%, 73%, 32s, -22s, -5vw, -2vh);
+}
+.background span:nth-child(8) {
+  @include refineMoveAnimation(6%, 94%, 26s, -34s, 20vw, -6vh);
+}
+.background span:nth-child(9) {
+  @include refineMoveAnimation(16%, 20%, 21s, -18s, 15vw, -7vh);
+}
+.background span:nth-child(10) {
+  @include refineMoveAnimation(11%, 33%, 30s, -11s, 5vw, -5vh);
+}
+.background span:nth-child(11) {
+  @include refineMoveAnimation(83%, 87%, 30s, -27s, -20vw, -5vh);
+}
+.background span:nth-child(12) {
+  @include refineMoveAnimation(31%, 89%, 16s, -19s, -6vw, -23vh);
+}
+.background span:nth-child(13) {
+  @include refineMoveAnimation(72%, 24%, 31s, -29s, -11vw, -15vh);
+}
+.background span:nth-child(14) {
+  @include refineMoveAnimation(75%, 95%, 12s, -24s, 12vw, 22vh);
+}
+.background span:nth-child(15) {
+  @include refineMoveAnimation(43%, 82%, 15s, -10s, 2vw, 15vh);
+}
+.background span:nth-child(16) {
+  @include refineMoveAnimation(45%, 95%, 15s, -5s, 3vw, 14vh);
+}
+.background span:nth-child(17) {
+  @include refineMoveAnimation(63%, 18%, 16s, -29s, 23vw, 7vh);
+}
+.background span:nth-child(18) {
+  @include refineMoveAnimation(89%, 72%, 16s, -4s, 15vw, -7vh);
+}
+.background span:nth-child(19) {
+  @include refineMoveAnimation(49%, 66%, 28s, -12s, 23vw, 14vh);
+}
+.background span:nth-child(20) {
+  @include refineMoveAnimation(89%, 26%, 17s, -5s, -22vw, 21vh);
+}
+.background span:nth-child(21) {
+  @include refineMoveAnimation(57%, 70%, 45s, -12s, 2vw, 24vh);
+}
+.background span:nth-child(22) {
+  @include refineMoveAnimation(80%, 57%, 12s, -35s, 24vw, 5vh);
+}
+.background span:nth-child(23) {
+  @include refineMoveAnimation(36%, 46%, 28s, -32s, 10vw, 2vh);
+}
+.background span:nth-child(24) {
+  @include refineMoveAnimation(76%, 73%, 21s, -35s, 16vw, 24vh);
+}
+.background span:nth-child(25) {
+  @include refineMoveAnimation(70%, 41%, 35s, -7s, -11vw, -16vh);
+}
+.background span:nth-child(26) {
+  @include refineMoveAnimation(63%, 61%, 6s, -9s, -16vw, 24vh);
+}
+.background span:nth-child(27) {
+  @include refineMoveAnimation(75%, 64%, 41s, -5s, 15vw, -21vh);
+}
+.background span:nth-child(28) {
+  @include refineMoveAnimation(49%, 52%, 33s, -9s, 4vw, -23vh);
+}

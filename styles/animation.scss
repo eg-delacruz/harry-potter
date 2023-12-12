@@ -1,0 +1,36 @@
+@mixin moveAnimation() {
+  animation: move 45s linear infinite;
+}
+
+@keyframes move {
+  100% {
+    transform: translate3d(0, 0, 1px) rotate(360deg);
+  }
+}
+
+//Changes the original moveAnimation properties. Is meant to assign to all elements that previously have the moveAnimatin property
+//Top in %, left in %, duration in s, delay in s, originX in vw, originY in vh
+@mixin refineMoveAnimation($top, $left, $duration, $delay, $originX, $originY) {
+  top: $top;
+  left: $left;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  transform-origin: $originX $originY;
+}
+
+///////////////////////// Appear-Disapear animation ///////////////////////////
+@function setAppearDisapear($duration: 5s) {
+  @return (appearDisappear $duration linear 0s infinite);
+}
+
+@keyframes appearDisappear {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
