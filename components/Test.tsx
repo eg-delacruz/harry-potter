@@ -9,7 +9,7 @@ const Test = () => {
 
   console.log({ counterReducer });
 
-  return <div>Test</div>;
+  return <></>;
 };
 
 export default Test;

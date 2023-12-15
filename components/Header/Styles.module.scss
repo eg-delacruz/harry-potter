@@ -1,0 +1,54 @@
+@import '../../styles/vars.scss';
+
+.header {
+  background-color: #fdc500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  box-shadow: -1px -3px 20px 12px $color--black;
+  margin-bottom: 60px;
+  @include font-size(20px);
+  a {
+    color: $color--black;
+  }
+  a:hover {
+    opacity: 0.8;
+  }
+  .quiz_link {
+    margin-right: 48px;
+  }
+
+  .logo_container {
+    position: relative;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    background-color: $color--white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 16px 0;
+    box-shadow: 0px 4px 4px 0px $color--black;
+    img {
+      margin-top: 40px;
+    }
+  }
+}
+
+/////////////////////////
+//         MQ         //
+/////////////////////////
+@media screen and (max-width: 480px) {
+  .header {
+    .logo_container {
+      width: 120px;
+      height: 120px;
+      margin: 10px 8px 0;
+      img {
+        margin-top: 20px;
+        width: 80px;
+      }
+    }
+  }
+}

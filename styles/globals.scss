@@ -21,7 +21,7 @@ body {
   background-image: url('../assets/images/soft-wallpaper.png');
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   color: $color--white;
-  @include font-size(20px);
+  @include font-size(16px);
 }
 
 h1,
@@ -73,7 +73,7 @@ h6 {
 }
 
 .background span img {
-  animation: setAppearDisapear();
+  //animation: setAppearDisapear();
 }
 
 .background span:nth-child(0) {
@@ -162,4 +162,11 @@ h6 {
 }
 .background span:nth-child(28) {
   @include refineMoveAnimation(49%, 52%, 33s, -9s, 4vw, -23vh);
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }

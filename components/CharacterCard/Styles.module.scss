@@ -1,0 +1,133 @@
+@import '../../styles/vars.scss';
+
+.container {
+  text-decoration: none;
+  color: $color--black;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  //width: 350px;
+  max-width: 100%;
+  height: 300px;
+  background: $color--white;
+  border-radius: 16px;
+  transition: 0.5s;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+  border: 1px solid $color--black;
+
+  &__image_container {
+    position: absolute;
+    top: 20px;
+    width: 220px;
+    height: 220px;
+    background: $color--black;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: 0.5s;
+    border: 5px solid $color--black;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  &__content {
+    h2 {
+      text-align: center;
+      transition: 0.5s;
+    }
+    position: absolute;
+    top: 252px;
+    width: 100%;
+    height: 35px;
+    padding: 0 8px;
+    overflow: hidden;
+    transition: 0.5s;
+  }
+}
+
+.card:hover {
+  cursor: pointer;
+  z-index: 200;
+}
+
+.card:hover .card__image_container {
+  top: -100px;
+  scale: 0.75;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card__content {
+  top: 105px;
+  height: 250px;
+}
+.card:hover .card__content h2 {
+  margin-bottom: 16px;
+}
+
+.Gryffindor {
+  background-color: $color--gryffindor-primary;
+  color: $color--white;
+  border: 1px solid $color--gryffindor-secondary;
+}
+.Gryffindor .card__image_container {
+  border: 5px solid $color--gryffindor-secondary;
+}
+.Slytherin {
+  background-color: $color--slytherin-primary;
+  color: $color--white;
+  border: 1px solid $color--slytherin-secondary;
+}
+.Slytherin .card__image_container {
+  border: 5px solid $color--slytherin-secondary;
+}
+.Hufflepuff {
+  background-color: $color--hufflepuf-primary;
+  color: $color--hufflepuf-secondary;
+  border: 1px solid $color--hufflepuf-secondary;
+}
+.Hufflepuff .card__image_container {
+  border: 5px solid $color--hufflepuf-secondary;
+}
+.Ravenclaw {
+  background-color: $color--ravenclaw-primary;
+  color: $color--white;
+  border: 1px solid $color--ravenclaw-secondary;
+}
+.Ravenclaw .card__image_container {
+  border: 5px solid $color--ravenclaw-secondary;
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    cursor: pointer;
+    margin-top: 80px;
+    &__image_container {
+      top: -100px;
+      scale: 0.75;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+    }
+    &__content {
+      top: 105px;
+      height: 250px;
+      h2 {
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .card {
+    max-width: 260px;
+    margin: 60px auto 0;
+  }
+}
