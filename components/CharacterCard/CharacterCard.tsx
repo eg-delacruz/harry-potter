@@ -17,6 +17,7 @@ type Props = {
   alive: boolean;
 };
 
+//TODO: Add an icon to show that you can go to the character page
 const CharacterCard = ({
   id,
   name,
@@ -56,11 +57,11 @@ const CharacterCard = ({
           </p>
           <p>
             <strong>Hogwarts student: </strong>
-            {hogwartsStudent ? 'true' : 'false'}
+            {hogwartsStudent ? 'True' : 'False'}
           </p>
           <p>
             <strong>Hogwarts staff: </strong>
-            {hogwartsStaff ? 'true' : 'false'}
+            {hogwartsStaff ? 'True' : 'False'}
           </p>
           {house ? (
             <p>

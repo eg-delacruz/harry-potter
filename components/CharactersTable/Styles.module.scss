@@ -1,6 +1,74 @@
 @import '../../styles/vars.scss';
+.filters_container {
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin: 72px 0 32px;
+  .houses_filters_container,
+  .gender_filters_container,
+  .state_filters_container,
+  .wizard_filters_container {
+    border: 2px solid $color--black;
+    border-radius: 5px;
+    padding: 8px;
+    //Glassmorphism
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
 
-.container {
+  h3 {
+    margin-bottom: 8px;
+    color: $color--black;
+    text-align: center;
+  }
+
+  .houses_filters,
+  .gender_filters,
+  .state_filters,
+  .wizard_filters {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .icon_container {
+    background: $color--white;
+    border-radius: 50%;
+    border: 3px solid $color--black;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .houses_filters_container {
+    .gryffindor_icon {
+      border-color: $color--gryffindor-secondary;
+    }
+    .slytherin_icon {
+      border-color: $color--slytherin-secondary;
+    }
+    .hufflepuff_icon {
+      border-color: $color--hufflepuf-secondary;
+    }
+    .ravenclaw_icon {
+      border-color: $color--ravenclaw-secondary;
+    }
+    .unknown_icon {
+      color: $color--black;
+      font-weight: bold;
+      font-family: $font1;
+      @include font-size(60px);
+    }
+  }
+}
+
+.characters_container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 32px;
@@ -8,22 +76,22 @@
 }
 
 @media screen and (max-width: 1300px) {
-  .container {
+  .characters_container {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 @media screen and (max-width: 1000px) {
-  .container {
+  .characters_container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (max-width: 767px) {
-  .container {
+  .characters_container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media screen and (max-width: 480px) {
-  .container {
+  .characters_container {
     grid-template-columns: 1fr;
   }
 }
