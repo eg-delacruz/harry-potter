@@ -1,0 +1,34 @@
+@import '../../../styles/vars.scss';
+
+.container {
+  padding: 4px;
+  margin-top: 72px;
+  .parchment {
+    .back_icon {
+      position: absolute;
+      background-color: $color--white;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include font-size(20px);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .back_icon:hover {
+      opacity: 0.8;
+    }
+    background-color: $color--white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 0 auto;
+    color: $color--black;
+    box-shadow: 2px 3px 20px black, 0 0 125px #8f5922 inset;
+    position: relative;
+  }
+}

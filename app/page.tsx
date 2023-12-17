@@ -10,9 +10,10 @@ const getAllCharacters = async () => {
     throw new Error('Error while fetching characters data');
   }
   const data = await res.json();
-
   //Return just the first 200 characters
-  return data.slice(0, 200);
+  const data_first_200 = data.slice(0, 200);
+
+  return data_first_200;
 };
 
 export default async function Home() {
