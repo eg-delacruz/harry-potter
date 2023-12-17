@@ -1,9 +1,15 @@
+import Image from 'next/image';
+
 //Styles
 import Link from 'next/link';
 import styles from './Styles.module.scss';
 
 //Components
 import LazyImage from '@components/LazyImage/LazyImage';
+
+//Assets
+import click_black_icon from '@assets/icons/click_black.svg';
+import click_white_icon from '@assets/icons/click_white.svg';
 
 type Props = {
   id: string;
@@ -17,7 +23,6 @@ type Props = {
   alive: boolean;
 };
 
-//TODO: Add an icon to show that you can go to the character page
 const CharacterCard = ({
   id,
   name,
@@ -32,6 +37,20 @@ const CharacterCard = ({
   return (
     <Link className={`${styles.container}`} href={`/character/${id}`}>
       <div className={`${styles.card} ${styles[house]}`}>
+        {house ? (
+          <Image
+            src={click_white_icon}
+            className={styles.card__click_icon}
+            alt='Click icon'
+          />
+        ) : (
+          <Image
+            className={styles.card__click_icon}
+            src={click_black_icon}
+            alt='Click icon'
+          />
+        )}
+
         <div className={styles.card__image_container}>
           <LazyImage
             src={

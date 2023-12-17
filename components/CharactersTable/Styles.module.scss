@@ -68,6 +68,38 @@
   }
 }
 
+.searchbar_container {
+  margin: 0 auto 24px;
+  max-width: 320px;
+  border-radius: 5px;
+  border: 2px solid $color--black;
+  //Glassmorphism
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 8px;
+  h3 {
+    color: $color--black;
+  }
+  input {
+    width: 100%;
+    border-radius: 5px;
+    height: 40px;
+    font-family: $font2;
+    padding: 0 4px;
+    border: none;
+  }
+  input:focus {
+    outline: none;
+  }
+}
+
+.no_characters_message {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 320px;
+}
+
 .characters_container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -91,6 +123,15 @@
   }
 }
 @media screen and (max-width: 480px) {
+  .filters_container {
+    .icon_container {
+      width: 60px;
+      height: 60px;
+      img {
+        width: 35px;
+      }
+    }
+  }
   .characters_container {
     grid-template-columns: 1fr;
   }

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 //Styles
 import styles from './Styles.module.scss';
@@ -25,9 +25,16 @@ import muggle_icon from '@assets/icons/muggle.svg';
 import dead_icon from '@assets/icons/dead.svg';
 import alive_icon from '@assets/icons/alive.svg';
 
+//Hooks
+import { useInputValue } from '@hooks/useInputValue';
+import useDebouncedSearchValue from '@hooks/useDebouncedSearchValue';
+
 type Props = { characters: TCharacter[] };
 
 const CharactersTable = ({ characters }: Props) => {
+  const [filteredDiscounts, setFilteredDiscounts] =
+    useState<TCharacter[]>(characters);
+
   //Checkbox states
   const [gryffindor, setGryffindor] = useState<boolean>(true);
   const [slytherin, setSlytherin] = useState<boolean>(true);
@@ -43,6 +50,55 @@ const CharactersTable = ({ characters }: Props) => {
 
   const [wizard, setWizard] = useState<boolean>(true);
   const [noWizard, setNoWizard] = useState<boolean>(true);
+
+  //Controlling inputs
+  const SEARCH_BAR = useInputValue('');
+  const debouncedName = useDebouncedSearchValue(SEARCH_BAR.value);
+
+  useMemo(() => {
+    const filteredHouse = characters?.filter((character: TCharacter) => {
+      if (gryffindor && character.house === 'Gryffindor') return character;
+      if (slytherin && character.house === 'Slytherin') return character;
+      if (hufflepuff && character.house === 'Hufflepuff') return character;
+      if (ravenclaw && character.house === 'Ravenclaw') return character;
+      if (unknownHouse && character.house === '') return character;
+    });
+
+    const filteredGender = filteredHouse?.filter((character: TCharacter) => {
+      if (female && character.gender === 'female') return character;
+      if (male && character.gender === 'male') return character;
+    });
+
+    const filteredState = filteredGender?.filter((character: TCharacter) => {
+      if (dead && !character.alive) return character;
+      if (alive && character.alive) return character;
+    });
+
+    const filteredWizard = filteredState?.filter((character: TCharacter) => {
+      if (wizard && character.wizard) return character;
+      if (noWizard && !character.wizard) return character;
+    });
+
+    const filteredName = filteredWizard?.filter((character: TCharacter) => {
+      return character.name
+        .toLowerCase()
+        .includes(SEARCH_BAR.value.toLowerCase());
+    });
+    setFilteredDiscounts(filteredName);
+  }, [
+    gryffindor,
+    slytherin,
+    hufflepuff,
+    ravenclaw,
+    unknownHouse,
+    female,
+    male,
+    dead,
+    alive,
+    wizard,
+    noWizard,
+    debouncedName,
+  ]);
 
   return (
     <>
@@ -175,17 +231,40 @@ const CharactersTable = ({ characters }: Props) => {
             </CheckBox>
           </div>
         </div>
-
-        {/* /////////////////////////
-             //   Name filter    //
-              ///////////////////////// */}
       </div>
 
-      <div className={styles.characters_container}>
-        {characters.map((character: TCharacter) => (
-          <CharacterCard key={character.id} {...character} id={character.id} />
-        ))}
+      {/* /////////////////////////
+        //   Search bar filter    //
+        ///////////////////////// */}
+
+      <div className={styles.searchbar_container}>
+        <h3>Search by name</h3>
+        <input
+          type='text'
+          value={SEARCH_BAR.value}
+          onChange={SEARCH_BAR.onChange}
+          name='search_character'
+          id='search_character'
+        />
       </div>
+
+      {filteredDiscounts.length === 0 ? (
+        <>
+          <h3 className={styles.no_characters_message}>
+            No characters with these criteria...
+          </h3>
+        </>
+      ) : (
+        <div className={styles.characters_container}>
+          {filteredDiscounts.map((character: TCharacter) => (
+            <CharacterCard
+              key={character.id}
+              {...character}
+              id={character.id}
+            />
+          ))}
+        </div>
+      )}
     </>
   );
 };

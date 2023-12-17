@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 
+type Value = string | number;
+
 // Optimal wait time for debounce is 300ms
-function useDebouncedSearchValue(value, wait = 300) {
+function useDebouncedSearchValue(value: Value, wait = 300) {
   //State to store the search value
-  const [debouncedValue, setDebouncedValue] = useState(value);
+  const [debouncedValue, setDebouncedValue] = useState<Value>(value);
 
   useEffect(() => {
     // Update the inner state after <wait> ms
