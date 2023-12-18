@@ -67,6 +67,17 @@
       }
       .wand_components {
         margin-top: -20px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-top: -40px;
+        strong {
+          text-decoration: underline;
+        }
+      }
+      .wand_components > div {
+        border: 1px solid $color--black;
+        padding: 4px;
       }
     }
   }

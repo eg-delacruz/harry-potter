@@ -152,7 +152,20 @@ const CharacterData = ({ characterData }: Props) => {
           <section className={styles.wand_section}>
             <h3>Magic wand</h3>
             <Image src={black_wand} alt='Black wand image' width={140} />
-            <div className={styles.wand_components}>Content</div>
+            <div className={styles.wand_components}>
+              <div>
+                <strong>wood</strong>
+                <div>{wand.wood}</div>
+              </div>
+              <div>
+                <strong>core</strong>
+                <div>{wand.core}</div>
+              </div>
+              <div>
+                <strong>length</strong>
+                <div>{wand.length}</div>
+              </div>
+            </div>
           </section>
         ) : null}
 
