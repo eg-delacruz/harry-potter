@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 //Slices
-import { counterSlice } from './slices/counterSlice';
+import { commentsSlice } from './slices/commentsSlice';
 
 //We need a "makeStore" to avoid making the state global and instead create a new state in each request (needed for the Next JS app folder architecture)
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      counter: counterSlice.reducer,
+      comments: commentsSlice.reducer,
     },
   });
 };

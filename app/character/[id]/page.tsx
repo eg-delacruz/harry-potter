@@ -37,7 +37,10 @@ const page = async ({ params }: Props) => {
           🔙
         </Link>
         <CharacterData characterData={characterData[0]} />
-        <CharacterPosts posts={posts} />
+        <CharacterPosts
+          posts_without_comments={posts}
+          userId={characterData[0]?.id}
+        />
       </div>
     </main>
   );
