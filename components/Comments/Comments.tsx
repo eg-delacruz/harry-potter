@@ -14,13 +14,18 @@ type Props = {
   comments: TComment[];
 };
 
-//TODO: add a better loading animation and a better error displayer
 const Comments = ({ comments }: Props) => {
   const commentReducer = useAppSelector(selectCommentsState);
 
   if (commentReducer.comments_error) return "Something went wrong";
 
-  if (commentReducer.comments_loading && !comments.length) return "Loading";
+  if (commentReducer.comments_loading && !comments.length)
+    return (
+      <div className={styles.loader_container}>
+        <p>Loading comments...</p>
+        <div className={styles.loader}></div>
+      </div>
+    );
 
   return (
     <ul className={styles.container}>

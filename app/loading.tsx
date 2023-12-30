@@ -1,8 +1,13 @@
-import React from 'react';
+//Styles
+import styles from "./page.module.scss";
 
-//TODO: Add a better loader
 const loading = () => {
-  return <div>Loading...</div>;
+  return (
+    <div className={styles.loader_container}>
+      <p>Loading...</p>
+      <div className={styles.loader}></div>
+    </div>
+  );
 };
 
 export default loading;

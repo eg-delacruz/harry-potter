@@ -1,19 +1,18 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 //Styles
-import styles from './Styles.module.scss';
+import styles from "./Styles.module.scss";
 
 //Assets
-import black_wand from '@assets/icons/black_wand.svg';
+import black_wand from "@assets/icons/black_wand.svg";
 
 //Components
-import LazyImage from '@components/LazyImage/LazyImage';
+import LazyImage from "@components/LazyImage/LazyImage";
 
 type Props = {
   characterData: TCharacter;
 };
 
-//TODO: Magic wand section
 const CharacterData = ({ characterData }: Props) => {
   const {
     image,
@@ -51,7 +50,7 @@ const CharacterData = ({ characterData }: Props) => {
                   ? image
                   : `https://api.dicebear.com/7.x/lorelei/svg?seed=${name.replace(
                       /\s+/g,
-                      ''
+                      ""
                     )}`
               }
               alt={`Image of ${name}`}
@@ -70,7 +69,7 @@ const CharacterData = ({ characterData }: Props) => {
                     return (
                       <span key={index}>
                         {name}
-                        {index === alternate_names.length - 1 ? '' : ', '}
+                        {index === alternate_names.length - 1 ? "" : ", "}
                       </span>
                     );
                   })}
@@ -79,7 +78,7 @@ const CharacterData = ({ characterData }: Props) => {
             ) : null}
             <li>
               <strong>Date of birth: </strong>
-              {dateOfBirth ? dateOfBirth.toString() : 'Unknown'}
+              {dateOfBirth ? dateOfBirth.toString() : "Unknown"}
             </li>
             <li>
               <strong>Species: </strong>
@@ -87,11 +86,11 @@ const CharacterData = ({ characterData }: Props) => {
             </li>
             <li>
               <strong>Wizard: </strong>
-              {wizard ? 'True' : 'False'}
+              {wizard ? "True" : "False"}
             </li>
             <li>
               <strong>Alive: </strong>
-              {alive ? 'True' : 'False'}
+              {alive ? "True" : "False"}
             </li>
             {ancestry ? (
               <li>
@@ -135,15 +134,15 @@ const CharacterData = ({ characterData }: Props) => {
           <ul>
             <li>
               <strong>House: </strong>
-              {house ? house : 'None'}
+              {house ? house : "None"}
             </li>
             <li>
               <strong>Hogwarts student: </strong>
-              {hogwartsStudent ? 'True' : 'False'}
+              {hogwartsStudent ? "True" : "False"}
             </li>
             <li>
               <strong>Hogwarts staff: </strong>
-              {hogwartsStaff ? 'True' : 'False'}
+              {hogwartsStaff ? "True" : "False"}
             </li>
           </ul>
         </section>
@@ -151,7 +150,7 @@ const CharacterData = ({ characterData }: Props) => {
         {wand.wood || wand.core || wand.length ? (
           <section className={styles.wand_section}>
             <h3>Magic wand</h3>
-            <Image src={black_wand} alt='Black wand image' width={140} />
+            <Image src={black_wand} alt="Black wand image" width={140} />
             <div className={styles.wand_components}>
               <div>
                 <strong>wood</strong>
