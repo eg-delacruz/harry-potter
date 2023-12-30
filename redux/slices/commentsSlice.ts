@@ -73,8 +73,10 @@ export const commentsSlice = createSlice({
         (user) => user.userId === userId
       );
 
-      //Validation needed here as well because if done in useEffect, in dev mode it is done twice and triggers this function twice, storing the data twice as well
-      if (user_already_added_to_state.length !== 0) {
+      const already_created_posts_key =
+        user_already_added_to_state[0]?.posts_key;
+
+      if (already_created_posts_key !== undefined) {
         return;
       }
 

@@ -43,15 +43,8 @@ const CharacterPosts = ({ posts_without_comments, userId, house }: Props) => {
   const { posts: all_posts, loaded_users } = commentsReducer;
 
   useEffect(() => {
-    const user_already_added_to_state = commentsReducer.loaded_users.filter(
-      (user) => user.userId === userId
-    );
-
-    if (user_already_added_to_state.length !== 0 && all_posts[posts_key])
-      return;
-
     dispatch(cacheLoadedUserAndPosts({ posts_without_comments, userId }));
-  }, [all_posts, posts_key]);
+  }, []);
 
   const displayComments = (postId: number, comments: TComment[]) => {
     dispatch(openClose({ posts_key, postId }));

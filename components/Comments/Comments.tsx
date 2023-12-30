@@ -1,5 +1,10 @@
+import Image from "next/image";
+
 //Styles
 import styles from "./Styles.module.scss";
+
+//Assets
+import user_icon from "@assets/icons/user.svg";
 
 //Redux
 import { useAppSelector } from "@redux/hooks";
@@ -18,10 +23,15 @@ const Comments = ({ comments }: Props) => {
   if (commentReducer.comments_loading && !comments.length) return "Loading";
 
   return (
-    <ul>
+    <ul className={styles.container}>
       {comments.map((comment) => (
         <li key={comment.id}>
-          <b>{comment.name}</b>
+          <Image src={user_icon} alt={comment.name} />
+
+          <div className={styles.name_body_container}>
+            <b>{comment.name}</b>
+            <p>{comment.body}</p>
+          </div>
         </li>
       ))}
     </ul>
