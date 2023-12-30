@@ -25,3 +25,10 @@ type TCharacter = {
   readonly alive: boolean;
   readonly image: string;
 };
+
+type TComment = {
+  readonly name: string;
+  readonly body: string;
+  readonly id: number;
+  readonly email: string;
+};

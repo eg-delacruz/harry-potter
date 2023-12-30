@@ -5,12 +5,16 @@ import { useEffect } from "react";
 //Styles
 import styles from "./Styles.module.scss";
 
+//Components
+import Comments from "@components/Comments/Comments";
+
 //Redux
 import { useAppSelector, useAppDispatch } from "@redux/hooks";
 import {
   selectCommentsState,
   cacheLoadedUserAndPosts,
   openClose,
+  getComments,
 } from "@redux/slices//commentsSlice";
 
 type Post = {
@@ -20,16 +24,12 @@ type Post = {
   body: string;
 };
 
-//TODO: type the comments
-type Comment = {};
-
 type Props = {
   posts_without_comments: Post[];
   userId: string;
   house: string;
 };
 
-//TODO: Mostrar comentarios
 const CharacterPosts = ({ posts_without_comments, userId, house }: Props) => {
   const commentsReducer = useAppSelector(selectCommentsState);
   const dispatch = useAppDispatch();
@@ -53,13 +53,11 @@ const CharacterPosts = ({ posts_without_comments, userId, house }: Props) => {
     dispatch(cacheLoadedUserAndPosts({ posts_without_comments, userId }));
   }, [all_posts, posts_key]);
 
-  //console.log({ commentsReducer });
-
-  //console.log({ posts_key });
-
-  //TODO: Add the comments type after knowing the comment structure
-  const displayComments = (comments_key: number, entry_comments: []) => {
-    dispatch(openClose());
+  const displayComments = (postId: number, comments: TComment[]) => {
+    dispatch(openClose({ posts_key, postId }));
+    if (!comments.length) {
+      dispatch(getComments({ postId, posts_key }));
+    }
   };
 
   const displayPosts = () => {
@@ -68,23 +66,24 @@ const CharacterPosts = ({ posts_without_comments, userId, house }: Props) => {
     //Don´t show anything if posts are still not in global state
     if (!all_posts[posts_key] || all_posts[posts_key].length === 0) return;
 
-    //Comments key is in fact the index/position of the comment in the comments array
     return (
       <div className={styles.entries_container}>
-        {all_posts[posts_key].map((post, comments_key) => {
+        {all_posts[posts_key].map((post) => {
           return (
             <div className={styles.entry} key={post.postId}>
               <h4>{post.title}</h4>
               <p>{post.body}</p>
               {/* Comments */}
-              {post.comments_open ? <>Comentario abierto</> : null}
+              {post.comments_open ? (
+                <Comments comments={post.comments} />
+              ) : null}
               <button
                 onClick={() => {
-                  displayComments(comments_key, post.comments);
+                  displayComments(post.postId, post.comments);
                 }}
                 className={`${styles[house]} ${styles.show_comments_btn}`}
               >
-                Show comments
+                {post.comments_open ? "Hide comments" : "Show comments"}
               </button>
             </div>
           );

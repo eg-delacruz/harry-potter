@@ -1,4 +1,4 @@
-@import '../../styles/vars.scss';
+@import "../../styles/vars.scss";
 
 .container {
   margin: 8px 0;
@@ -11,36 +11,38 @@
 .entries_container {
   h4 {
     font-family: $font2;
-    margin:4px 0 8px;
+    margin: 4px 0 8px;
   }
   .entry {
     border-top: 1px solid $color--black;
   }
-  .show_comments_btn{
+  .show_comments_btn {
     display: block;
     margin: 8px auto;
     padding: 4px 8px;
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0px 0px 25px -9px black;
-    color: $color--white;
+    color: $color--black;
   }
-  .show_comments_btn:hover{
+  .show_comments_btn:hover {
     opacity: 0.8;
   }
 
   //House button styling
-  .Gryffindor{
+  .Gryffindor {
     background-color: $color--gryffindor-primary;
     border: 2px solid $color--gryffindor-secondary;
+    color: $color--white;
   }
 
-  .Slytherin{
+  .Slytherin {
     background-color: $color--slytherin-primary;
     border: 2px solid $color--slytherin-secondary;
+    color: $color--white;
   }
 
-  .Hufflepuff{
+  .Hufflepuff {
     color: $color--hufflepuf-secondary;
     background-color: $color--hufflepuf-primary;
     border: 2px solid $color--hufflepuf-secondary;
@@ -49,5 +51,6 @@
   .Ravenclaw {
     background-color: $color--ravenclaw-primary;
     border: 2px solid $color--ravenclaw-secondary;
+    color: $color--white;
   }
 }
