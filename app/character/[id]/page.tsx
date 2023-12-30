@@ -40,6 +40,7 @@ const page = async ({ params }: Props) => {
         <CharacterPosts
           posts_without_comments={posts}
           userId={characterData[0]?.id}
+          house={characterData[0]?.house}
         />
       </div>
     </main>

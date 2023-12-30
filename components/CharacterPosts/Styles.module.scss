@@ -2,4 +2,52 @@
 
 .container {
   margin: 8px 0;
+  h3 {
+    @include font-size(32px);
+    margin-bottom: 8px;
+  }
+}
+
+.entries_container {
+  h4 {
+    font-family: $font2;
+    margin:4px 0 8px;
+  }
+  .entry {
+    border-top: 1px solid $color--black;
+  }
+  .show_comments_btn{
+    display: block;
+    margin: 8px auto;
+    padding: 4px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 0px 25px -9px black;
+    color: $color--white;
+  }
+  .show_comments_btn:hover{
+    opacity: 0.8;
+  }
+
+  //House button styling
+  .Gryffindor{
+    background-color: $color--gryffindor-primary;
+    border: 2px solid $color--gryffindor-secondary;
+  }
+
+  .Slytherin{
+    background-color: $color--slytherin-primary;
+    border: 2px solid $color--slytherin-secondary;
+  }
+
+  .Hufflepuff{
+    color: $color--hufflepuf-secondary;
+    background-color: $color--hufflepuf-primary;
+    border: 2px solid $color--hufflepuf-secondary;
+  }
+
+  .Ravenclaw {
+    background-color: $color--ravenclaw-primary;
+    border: 2px solid $color--ravenclaw-secondary;
+  }
 }

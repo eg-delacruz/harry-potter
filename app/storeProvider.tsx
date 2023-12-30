@@ -6,8 +6,6 @@ import { Provider } from 'react-redux';
 //AppStore is a type
 import { makeStore, AppStore } from '@redux/configureStore';
 
-import { initializeCount } from '@redux/slices/counterSlice';
-
 export default function StoreProvider({
   //count = 0,
   children,

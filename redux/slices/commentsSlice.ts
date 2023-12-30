@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit/react';
-import { RootState } from '../configureStore';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit/react";
+import { RootState } from "../configureStore";
 
 type PostsWithComments = {
   postId: number;
@@ -27,18 +27,20 @@ type CommentsState = {
   comments_error: string;
 };
 
+///////////End of types/////////////
+
 const initialState: CommentsState = {
   posts: [],
   loaded_users: [],
   comments_loading: false,
-  comments_error: '',
+  comments_error: "",
 };
 
 export const commentsSlice = createSlice({
-  name: 'comments',
+  name: "comments",
   initialState,
   reducers: {
-    createInitialStructure: (
+    cacheLoadedUserAndPosts: (
       state,
       action: PayloadAction<{ posts_without_comments: Post[]; userId: string }>
     ) => {
@@ -48,7 +50,10 @@ export const commentsSlice = createSlice({
         (user) => user.userId === userId
       );
 
-      if (user_already_added_to_state.length !== 0) return;
+      //Validation needed here as well because if done in useEffect, in dev mode it is done twice and triggers this function twice, storing the data twice as well
+      if (user_already_added_to_state.length !== 0) {
+        return;
+      }
 
       // We create the initial structure to keep track of the comments only when the user opens any character profile
       const new_posts = posts_without_comments.map((post) => {
@@ -73,9 +78,13 @@ export const commentsSlice = createSlice({
       state.posts = updated_posts;
       state.loaded_users = updated_loaded_users;
     },
+
+    openClose: () => {
+      console.log("Holi");
+    },
   },
 });
 
 export const selectCommentsState = (state: RootState) => state.comments;
 
-export const { createInitialStructure } = commentsSlice.actions;
+export const { cacheLoadedUserAndPosts, openClose } = commentsSlice.actions;
