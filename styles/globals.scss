@@ -1,6 +1,6 @@
-@import './normalize.scss';
-@import './vars.scss';
-@import './animation.scss';
+@import "./normalize.scss";
+@import "./vars.scss";
+@import "./animation.scss";
 
 * {
   box-sizing: border-box;
@@ -18,7 +18,7 @@ body {
   max-width: 100%;
   overflow-x: hidden;
   background-color: $color--background;
-  background-image: url('../assets/images/soft-wallpaper.png');
+  background-image: url("../assets/images/soft-wallpaper.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   color: $color--white;
   @include font-size(16px);
@@ -169,4 +169,10 @@ h6 {
   max-width: 800px;
   margin: 0 auto;
   box-sizing: border-box;
+}
+
+.quiz_questions_container {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
 }

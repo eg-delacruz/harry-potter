@@ -8,7 +8,7 @@ import user_icon from "@assets/icons/user.svg";
 
 //Redux
 import { useAppSelector } from "@redux/hooks";
-import { selectCommentsState } from "@redux/slices//commentsSlice";
+import { selectCommentsState } from "@redux/slices/commentsSlice";
 
 type Props = {
   comments: TComment[];

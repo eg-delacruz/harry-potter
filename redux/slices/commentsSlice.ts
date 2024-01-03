@@ -2,7 +2,6 @@ import {
   createSlice,
   PayloadAction,
   createAsyncThunk,
-  current,
 } from "@reduxjs/toolkit/react";
 import { RootState } from "../configureStore";
 
