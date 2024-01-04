@@ -12,10 +12,13 @@ import Test2 from "@components/QuizComponents/Test2/Test2";
 const Quiz = () => {
   const quizReducer = useAppSelector(selectQuizState);
 
+  console.log(quizReducer);
+
   return (
     <>
-      {quizReducer.page === 0 && <Cover />}{" "}
+      {quizReducer.page === 0 && <Cover />}
       {quizReducer.page === 1 && <Test1 />}
+      {quizReducer.page === 2 && <Test2 />}
     </>
   );
 };

@@ -5,6 +5,9 @@ import styles from "./Styles.module.scss";
 import { useAppDispatch } from "@redux/hooks";
 import { setNextPage } from "@redux/slices/quizSlice";
 
+//Components
+import AnimatedBorderImg from "../AnimatedBorderImg/AnimatedBorderImg";
+
 const Cover = () => {
   const dispatch = useAppDispatch();
 
@@ -14,13 +17,21 @@ const Cover = () => {
         <h1>
           How well do you know <br /> the Harry Potter movies?
         </h1>
-        <p>Picture here</p>
+        <br />
+        <br />
+        <AnimatedBorderImg
+          src="https://media0.giphy.com/media/Bh3YfliwBZNwk/giphy.gif?cid=3640f6095c852266776c6f746fb2fc67"
+          alt="Castillo Hogwarts"
+        />
+        <br />
+        <br />
         <button
           onClick={() => {
             dispatch(setNextPage());
           }}
+          className={`btn btn__gryffindor`}
         >
-          Start
+          Start quiz
         </button>
       </div>
 

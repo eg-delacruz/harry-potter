@@ -1,13 +1,13 @@
 //Fonts
 @font-face {
-  font-family: 'HP';
-  src: url('/HP.ttf');
+  font-family: "HP";
+  src: url("/HP.ttf");
   font-weight: normal;
   font-style: normal;
 }
 
 //Comes from public folder
-$font1: 'HP', sans-serif;
+$font1: "HP", sans-serif;
 //Comes from font.ts
 $font2: var(--merriweather), sans-serif;
 

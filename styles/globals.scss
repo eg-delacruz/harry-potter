@@ -176,3 +176,26 @@ h6 {
   margin: 0 auto;
   text-align: center;
 }
+
+/////////////////////////
+//       Buttons      //
+/////////////////////////
+
+.btn {
+  display: block;
+  margin: 8px auto;
+  padding: 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0px 0px 25px -9px black;
+  color: $color--black;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+.btn__gryffindor {
+  background-color: $color--gryffindor-primary;
+  border: 2px solid $color--gryffindor-secondary;
+  color: $color--white;
+}

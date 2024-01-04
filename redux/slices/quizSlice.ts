@@ -20,7 +20,7 @@ export const quizSlice = createSlice({
     setNextPage: (state, action: PayloadAction) => {
       state.page = state.page + 1;
     },
-    addOneCorrectAnswer: (state, action: PayloadAction<{}>) => {
+    addOneCorrectAnswer: (state, action: PayloadAction) => {
       state.correctAnswers = state.correctAnswers + 1;
     },
   },

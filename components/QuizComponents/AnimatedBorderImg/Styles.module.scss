@@ -1,0 +1,71 @@
+@import "../../../styles/vars.scss";
+
+//Use https://codepen.io/LekovicMilos/pen/omVzYv to preview and generate rendom border radius shapes
+
+.animated_border {
+  height: 100vh;
+  place-items: center;
+  animation: anim 20s infinite ease-in-out;
+  border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
+  content: "";
+  filter: drop-shadow(0 0 0.75rem $color--black);
+  height: 50vmin;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.animated_border img {
+  height: 100%;
+  width: 100%;
+}
+
+@keyframes anim {
+  0%,
+  100% {
+    border-radius: 30% 30% 30% 30% / 30% 52% 48% 70%;
+  }
+
+  10% {
+    border-radius: 51% 49% 34% 66% / 62% 25% 75% 38%;
+  }
+
+  20% {
+    border-radius: 47% 53% 55% 45% / 33% 61% 39% 67%;
+  }
+
+  30% {
+    border-radius: 32% 68% 25% 75% / 51% 44% 56% 49%;
+  }
+
+  40% {
+    border-radius: 40% 60% 32% 68% / 69% 49% 51% 31%;
+  }
+
+  50% {
+    border-radius: 61% 39% 72% 28% / 33% 75% 25% 67%;
+  }
+
+  60% {
+    border-radius: 59% 41% 35% 65% / 54% 58% 42% 46%;
+  }
+
+  70% {
+    border-radius: 37% 63% 54% 46% / 54% 61% 39% 46%;
+  }
+
+  80% {
+    border-radius: 31% 69% 70% 30% / 62% 45% 55% 38%;
+  }
+
+  90% {
+    border-radius: 38% 62% 42% 58% / 58% 57% 43% 42%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .animated_border {
+    height: 55vmin;
+    width: 90vmin;
+  }
+}
