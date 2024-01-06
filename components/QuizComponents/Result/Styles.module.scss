@@ -1,0 +1,9 @@
+@import "../../../styles/vars.scss";
+
+.score {
+  position: relative;
+  z-index: 1;
+  top: -20px;
+  font-weight: bold;
+  @include font-size(36px);
+}

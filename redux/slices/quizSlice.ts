@@ -23,9 +23,20 @@ export const quizSlice = createSlice({
     addOneCorrectAnswer: (state, action: PayloadAction) => {
       state.correctAnswers = state.correctAnswers + 1;
     },
+    setPageTo0: (state) => {
+      state.page = 0;
+    },
+    resetCorrectAnswers: (state) => {
+      state.correctAnswers = 0;
+    },
   },
 });
 
 export const selectQuizState = (state: RootState) => state.quiz;
 
-export const { setNextPage, addOneCorrectAnswer } = quizSlice.actions;
+export const {
+  setNextPage,
+  addOneCorrectAnswer,
+  setPageTo0,
+  resetCorrectAnswers,
+} = quizSlice.actions;
